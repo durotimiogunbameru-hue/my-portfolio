@@ -41,6 +41,10 @@ desktop.ini
 # Claude Code local files
 .claude/
 
+# Personal documents (keep out of the public repo)
+My cover letter.pdf
+*cover letter*.pdf
+
 # Misc
 *.tmp
 coverage/
