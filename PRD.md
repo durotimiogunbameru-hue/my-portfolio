@@ -3,8 +3,9 @@
 
 **Author:** Durotimi Ogunbameru
 **Last updated:** July 21, 2026
-**Status:** Draft v1.0
-**Live host:** GitHub Pages — https://durotimiogunbameru-hue.github.io/my-portfolio/
+**Status:** Draft v1.1
+**Live host:** Vercel (connected to the GitHub repo `durotimiogunbameru-hue/my-portfolio`)
+**Source repo:** https://github.com/durotimiogunbameru-hue/my-portfolio
 
 ---
 
@@ -159,14 +160,23 @@ Single-page scroll with sticky navigation. Sections in order:
 
 ## 8. Technical Requirements
 
-- **Hosting:** GitHub Pages (already configured), branch `main`, root `/`.
+- **Hosting:** **Vercel**, connected to the GitHub repo for automatic deploys.
+  - Every push to `main` → production deploy; every branch/PR → a preview URL.
+  - Zero-config for static sites and for framework builds (auto-detected).
+  - Free tier is sufficient; global CDN + automatic HTTPS included.
 - **Stack options:**
-  - **Option A — Static HTML/CSS/JS (recommended for speed & zero build):**
-    Plain `index.html` + `styles.css` + `main.js`. Deploys instantly to Pages.
-  - **Option B — Framework (React/Vite or Astro):** Requires a build step +
-    GitHub Actions to publish to Pages. More scalable if the site grows.
-- **Recommendation:** Start with **Option A** (static). Revisit a framework only if
-  content volume justifies it.
+  - **Option A — Static HTML/CSS/JS (simplest, zero build):**
+    Plain `index.html` + `styles.css` + `main.js`. Vercel serves it directly.
+  - **Option B — Framework (recommended on Vercel): Next.js, Astro, or Vite/React.**
+    Vercel builds and deploys automatically with no extra CI config. **Next.js** is
+    Vercel's native framework and unlocks serverless API routes (useful for a
+    working contact form) and image optimization out of the box.
+- **Recommendation:** Either works well. If you want a **contact form that sends email**
+  or plan to grow the site, go with **Next.js (Option B)** — Vercel makes it effortless.
+  For a fast, ultra-simple v1, **Option A (static)** is perfectly fine and still deploys
+  to Vercel in one click.
+- **Deployment flow:** Import the GitHub repo into Vercel once; thereafter `git push`
+  auto-deploys. No manual build/publish steps needed.
 - **Responsive:** Mobile-first, tested 320px → 1920px.
 - **Performance:** Inline critical CSS, lazy-load images, minimal JS, system fonts or
   a single self-hosted webfont.
@@ -174,7 +184,8 @@ Single-page scroll with sticky navigation. Sections in order:
   4.5:1 contrast, reduced-motion support.
 - **SEO:** Title, meta description, Open Graph tags, favicon, `sitemap`, descriptive
   headings. Add a social share preview image.
-- **Analytics (optional):** Privacy-friendly (e.g., a lightweight, cookieless tool).
+- **Analytics (optional):** Vercel Web Analytics (privacy-friendly, one-line setup) or
+  another cookieless tool.
 - **Assets:** Résumé PDF committed to the repo for download.
 
 ---
@@ -196,10 +207,12 @@ Single-page scroll with sticky navigation. Sections in order:
 
 ## 10. Open Questions / Decisions
 
-1. **Contact form vs. mailto only?** A form needs a serverless service (e.g., Formspree)
-   since GitHub Pages is static. Mailto is simplest.
-2. **Static vs. framework?** Default: static. Confirm.
-3. **Custom domain?** e.g., `durotimiogunbameru.com` — optional, improves professionalism.
+1. **Contact form vs. mailto only?** On Vercel, a working form is easy via a serverless
+   API route (Next.js) or a service like Formspree/Resend. Mailto is still the simplest.
+2. **Static vs. framework?** Both deploy cleanly to Vercel — pick based on whether you
+   want a contact form / future growth (Next.js) or maximum simplicity (static).
+3. **Custom domain?** e.g., `durotimiogunbameru.com` — add it in Vercel's dashboard
+   (free to connect; domain purchase separate). Improves professionalism.
 4. **Theme toggle?** Nice-to-have; default dark hero is fine for v1.
 5. **Projects section** — include now with placeholders, or defer until content ready?
 
@@ -209,7 +222,7 @@ Single-page scroll with sticky navigation. Sections in order:
 
 ### In scope (v1)
 - Single-page responsive site with all sections §5.
-- GitHub Pages deployment.
+- Vercel deployment (auto-deploy from the GitHub repo).
 - Résumé download, contact links, social links.
 - Polished, accessible, performant design.
 
@@ -229,7 +242,7 @@ Single-page scroll with sticky navigation. Sections in order:
 | **M2 — Design** | Finalize palette, typography, layout direction |
 | **M3 — Build** | Implement all sections, responsive, accessible |
 | **M4 — Polish** | Animations, SEO, performance, cross-browser QA |
-| **M5 — Launch** | Deploy to GitHub Pages, verify live, share link |
+| **M5 — Launch** | Connect repo to Vercel, deploy, verify live, share link |
 | **M6 — Optional** | Custom domain, analytics, contact form |
 
 ---
@@ -240,5 +253,5 @@ Single-page scroll with sticky navigation. Sections in order:
 - Lighthouse ≥ 95 across the board.
 - Fully responsive and keyboard-accessible.
 - Résumé downloads correctly; all links work.
-- Live and verified at the GitHub Pages URL.
+- Live and verified at the Vercel deployment URL (and custom domain, if set).
 - No console errors; validated HTML.
