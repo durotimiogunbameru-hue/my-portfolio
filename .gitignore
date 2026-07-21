@@ -49,6 +49,9 @@ My cover letter.pdf
 IMG_*.PNG
 IMG_*.png
 
+# Original résumé source (only the clean resume.pdf is tracked)
+UPDATE summer Resume.pdf
+
 # Misc
 *.tmp
 coverage/
