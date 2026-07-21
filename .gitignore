@@ -45,6 +45,10 @@ desktop.ini
 My cover letter.pdf
 *cover letter*.pdf
 
+# Raw/original image exports (only the optimized assets/ versions are tracked)
+IMG_*.PNG
+IMG_*.png
+
 # Misc
 *.tmp
 coverage/
